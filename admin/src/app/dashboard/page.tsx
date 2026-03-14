@@ -3,6 +3,7 @@
 import { AdminLayout } from '@/components/layout/AdminLayout'
 import { Badge } from '@/components/ui/Badge'
 import { useAuth } from '@/contexts/AuthContext'
+import { useEffect } from 'react'
 
 const metrics = [
   { label: 'Eventos publicados', value: 0, color: 'var(--gdg-blue)' },
@@ -42,6 +43,11 @@ export default function DashboardPage() {
 
   const displayName = user?.displayName ?? 'Admin'
   const firstName = displayName.split(' ')[0]
+
+  useEffect(() => {
+  if (!user) return
+  user.getIdToken().then((token) => console.log(token))
+}, [user])
 
   return (
     <AdminLayout title="Dashboard">

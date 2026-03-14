@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { adminUsersRoutes } from './routes/adminUsers/adminUsers.routes'
+import { eventsRoutes } from './routes/events/events.routes'
 import { seedRoutes } from './routes/seed/seed.routes'
 
 const app = express()
@@ -20,6 +21,7 @@ app.get('/api/v1/health', (_req, res) => {
 })
 
 app.use('/api/v1', adminUsersRoutes)
+app.use('/api/v1', eventsRoutes)
 app.use('/api/v1', seedRoutes)
 
 export { app }
