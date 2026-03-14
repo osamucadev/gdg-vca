@@ -4,7 +4,8 @@
   "description": "GDG Vitória da Conquista platform",
   "private": true,
   "scripts": {
-    "emulators": "firebase emulators:start",
+    "emulators": "firebase emulators:start --import .firebase/emulator-data --export-on-exit .firebase/emulator-data",
+    "emulators:fresh": "firebase emulators:start",
     "emulators:export": "firebase emulators:export .firebase/emulator-data",
     "emulators:import": "firebase emulators:start --import .firebase/emulator-data",
     "build:functions": "cd functions && pnpm build",

@@ -30,3 +30,11 @@ Desktop.ini
 # Editor
 .vscode/
 .idea/
+
+# Emulators Data
+.firebase/emulator-data
+
+# Exceptions
+!admin/src/lib/
+!web/src/lib/
+!admin/.env.example
