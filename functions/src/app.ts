@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import { adminUsersRoutes } from './routes/adminUsers/adminUsers.routes'
 import { eventsRoutes } from './routes/events/events.routes'
+import { postsRoutes } from './routes/posts/posts.routes'
+import { announcementsRoutes } from './routes/announcements/announcements.routes'
 import { seedRoutes } from './routes/seed/seed.routes'
 
 const app = express()
@@ -22,6 +24,8 @@ app.get('/api/v1/health', (_req, res) => {
 
 app.use('/api/v1', adminUsersRoutes)
 app.use('/api/v1', eventsRoutes)
+app.use('/api/v1', postsRoutes)
+app.use('/api/v1', announcementsRoutes)
 app.use('/api/v1', seedRoutes)
 
 export { app }
