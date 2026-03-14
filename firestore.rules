@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Bloqueia tudo por padrão
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Conteúdo público: apenas leitura de documentos publicados
+    match /events/{eventId} {
+      allow read: if resource.data.status == 'published';
+    }
+
+    match /posts/{postId} {
+      allow read: if resource.data.status == 'published';
+    }
+
+    match /announcements/{announcementId} {
+      allow read: if resource.data.status == 'published';
+    }
+
+    match /pages/{pageId} {
+      allow read: if resource.data.status == 'published';
+    }
+
+    match /homeBlocks/{blockId} {
+      allow read: if resource.data.enabled == true;
+    }
+
+    match /partners/{partnerId} {
+      allow read: if resource.data.status == 'active';
+    }
+
+    // Escrita administrativa: apenas pelo service account do backend
+    // O backend usa Firebase Admin SDK, que bypassa essas regras.
+    // As regras abaixo existem para negar qualquer tentativa de escrita
+    // direta por tokens de usuário autenticado normal.
+    match /adminUsers/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    match /roles/{roleId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /auditLogs/{logId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    match /contactSubmissions/{submissionId} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    match /slugs/{slug} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    match /rateLimits/{ipHash} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    match /system/{document} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "gdg-vca",
+  "version": "1.0.0",
+  "description": "GDG Vitória da Conquista platform",
+  "private": true,
+  "scripts": {
+    "emulators": "firebase emulators:start",
+    "emulators:export": "firebase emulators:export .firebase/emulator-data",
+    "emulators:import": "firebase emulators:start --import .firebase/emulator-data",
+    "build:functions": "cd functions && pnpm build",
+    "build:web": "cd web && pnpm build",
+    "build:admin": "cd admin && pnpm build",
+    "build": "pnpm build:functions && pnpm build:web && pnpm build:admin",
+    "dev:web": "cd web && pnpm dev",
+    "dev:admin": "cd admin && pnpm dev",
+    "lint:functions": "cd functions && pnpm lint",
+    "lint:web": "cd web && pnpm lint",
+    "lint:admin": "cd admin && pnpm lint",
+    "lint": "pnpm lint:functions && pnpm lint:web && pnpm lint:admin",
+    "format:functions": "cd functions && pnpm format",
+    "format:web": "cd web && pnpm format",
+    "format:admin": "cd admin && pnpm format",
+    "format": "pnpm format:functions && pnpm format:web && pnpm format:admin",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:hosting:web": "firebase deploy --only hosting",
+    "deploy:firestore": "firebase deploy --only firestore",
+    "deploy:storage": "firebase deploy --only storage",
+    "deploy": "pnpm build && firebase deploy"
+  }
+}
