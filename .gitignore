@@ -16,6 +16,7 @@ storage.rules.bak
 .env
 .env.local
 .env.*.local
+.env.production
 
 # Build
 dist/
@@ -33,6 +34,9 @@ Desktop.ini
 
 # Emulators Data
 .firebase/emulator-data
+
+# Key
+gdg-vca-firebase-*.json
 
 # Exceptions
 !admin/src/lib/

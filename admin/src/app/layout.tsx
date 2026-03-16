@@ -5,7 +5,7 @@ import { AuthProvider } from '@/contexts/AuthContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 
 const googleSans = Inter({
-  variable: '--loaded-font-sans',
+  variable: '--font-sans',
   subsets: ['latin'],
   weight: ['400', '500', '700'],
 })
