@@ -1,7 +1,5 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  trailingSlash: false,
-}
+const nextConfig: NextConfig = { output: 'export', trailingSlash: false }
 
 export default nextConfig

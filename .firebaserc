@@ -1,5 +1,18 @@
-﻿{
+{
   "projects": {
     "default": "gdg-vca"
-  }
+  },
+  "targets": {
+    "gdg-vca": {
+      "hosting": {
+        "web": [
+          "gdg-vca"
+        ],
+        "admin": [
+          "gdg-vca-admin"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

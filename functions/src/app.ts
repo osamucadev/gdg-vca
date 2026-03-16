@@ -8,6 +8,7 @@ import { pagesRoutes } from './routes/pages/pages.routes'
 import { homeBlocksRoutes } from './routes/homeBlocks/homeBlocks.routes'
 import { mediaRoutes } from './routes/media/media.routes'
 import { seedRoutes } from './routes/seed/seed.routes'
+import { contactRoutes } from './routes/contact/contact.routes'
 
 const app = express()
 
@@ -32,6 +33,7 @@ app.use('/api/v1', announcementsRoutes)
 app.use('/api/v1', pagesRoutes)
 app.use('/api/v1', homeBlocksRoutes)
 app.use('/api/v1', mediaRoutes)
+app.use('/api/v1', contactRoutes)
 app.use('/api/v1', seedRoutes)
 
 export { app }

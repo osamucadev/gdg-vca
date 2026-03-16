@@ -6,6 +6,7 @@ import { getPublishedAnnouncements } from '@/lib/data/announcements'
 import type { Metadata } from 'next'
 import type { PublicEvent } from '@/lib/data/events'
 import type { PublicAnnouncement } from '@/lib/data/announcements'
+import { ContactForm } from '@/components/home/ContactForm'
 
 export const metadata: Metadata = {
   title: 'GDG Vitória da Conquista',
@@ -723,154 +724,12 @@ function CtaBanner({ props }: { props: Record<string, unknown> }) {
 
 function ContactFormBlock({ props }: { props: Record<string, unknown> }) {
   return (
-    <section id="contato" style={{ padding: '80px 24px', background: 'white' }}>
-      <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-        {str(props['title']) && (
-          <h2
-            style={{
-              fontSize: '28px',
-              fontWeight: 600,
-              color: '#1A1A1A',
-              marginBottom: '8px',
-              textAlign: 'center',
-            }}
-          >
-            {str(props['title'])}
-          </h2>
-        )}
-        {str(props['subtitle']) && (
-          <p
-            style={{
-              fontSize: '14px',
-              color: '#5F6368',
-              marginBottom: '32px',
-              textAlign: 'center',
-              lineHeight: 1.6,
-            }}
-          >
-            {str(props['subtitle'])}
-          </p>
-        )}
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-            <div>
-              <label
-                style={{
-                  display: 'block',
-                  fontSize: '12px',
-                  color: '#5F6368',
-                  marginBottom: '6px',
-                }}
-              >
-                Nome
-              </label>
-              <input
-                type="text"
-                required
-                style={{
-                  width: '100%',
-                  height: '40px',
-                  padding: '0 12px',
-                  border: '0.5px solid rgba(0,0,0,0.15)',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  outline: 'none',
-                  fontFamily: 'inherit',
-                }}
-              />
-            </div>
-            <div>
-              <label
-                style={{
-                  display: 'block',
-                  fontSize: '12px',
-                  color: '#5F6368',
-                  marginBottom: '6px',
-                }}
-              >
-                E-mail
-              </label>
-              <input
-                type="email"
-                required
-                style={{
-                  width: '100%',
-                  height: '40px',
-                  padding: '0 12px',
-                  border: '0.5px solid rgba(0,0,0,0.15)',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  outline: 'none',
-                  fontFamily: 'inherit',
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <label
-              style={{ display: 'block', fontSize: '12px', color: '#5F6368', marginBottom: '6px' }}
-            >
-              Assunto
-            </label>
-            <input
-              type="text"
-              required
-              style={{
-                width: '100%',
-                height: '40px',
-                padding: '0 12px',
-                border: '0.5px solid rgba(0,0,0,0.15)',
-                borderRadius: '8px',
-                fontSize: '14px',
-                outline: 'none',
-                fontFamily: 'inherit',
-              }}
-            />
-          </div>
-          <div>
-            <label
-              style={{ display: 'block', fontSize: '12px', color: '#5F6368', marginBottom: '6px' }}
-            >
-              Mensagem
-            </label>
-            <textarea
-              required
-              rows={5}
-              style={{
-                width: '100%',
-                padding: '10px 12px',
-                border: '0.5px solid rgba(0,0,0,0.15)',
-                borderRadius: '8px',
-                fontSize: '14px',
-                outline: 'none',
-                fontFamily: 'inherit',
-                resize: 'vertical',
-              }}
-            />
-          </div>
-          {str(props['privacyNote']) && (
-            <p style={{ fontSize: '11px', color: '#9AA0A6', lineHeight: 1.5 }}>
-              {str(props['privacyNote'])}
-            </p>
-          )}
-          <button
-            type="submit"
-            style={{
-              height: '44px',
-              background: '#4285F4',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '14px',
-              fontWeight: 500,
-              color: 'white',
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-            }}
-          >
-            {str(props['submitLabel']) || 'Enviar mensagem'}
-          </button>
-        </form>
-      </div>
-    </section>
+    <ContactForm
+      title={str(props['title'])}
+      subtitle={str(props['subtitle'])}
+      submitLabel={str(props['submitLabel'])}
+      successMessage={str(props['successMessage'])}
+      privacyNote={str(props['privacyNote'])}
+    />
   )
 }

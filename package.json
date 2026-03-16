@@ -23,9 +23,11 @@
     "format:admin": "cd admin && pnpm format",
     "format": "pnpm format:functions && pnpm format:web && pnpm format:admin",
     "deploy:functions": "firebase deploy --only functions",
-    "deploy:hosting:web": "firebase deploy --only hosting",
     "deploy:firestore": "firebase deploy --only firestore",
     "deploy:storage": "firebase deploy --only storage",
-    "deploy": "pnpm build && firebase deploy"
+    "deploy:hosting:web": "firebase deploy --only \"hosting:web\"",
+    "deploy:hosting:admin": "firebase deploy --only \"hosting:admin\"",
+    "deploy:hosting": "firebase deploy --only \"hosting:web,hosting:admin\"",
+    "deploy": "pnpm build && firebase deploy --only \"hosting:web,hosting:admin,functions\""
   }
 }
