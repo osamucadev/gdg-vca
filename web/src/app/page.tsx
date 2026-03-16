@@ -419,7 +419,7 @@ function EventsCarousel({
             return (
               <a
                 key={event.id}
-                href={`/eventos/${event.slug}`}
+                href={`/eventos/slug?slug=${event.slug}`}
                 style={{
                   display: 'block',
                   background: '#F8F9FA',

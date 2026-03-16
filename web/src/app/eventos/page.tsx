@@ -48,7 +48,7 @@ export default async function EventosPage() {
                 return (
                   <a
                     key={event.id}
-                    href={`/eventos/${event.slug}`}
+                    href={`/eventos/slug?slug=${event.slug}`}
                     style={{
                       display: 'flex',
                       gap: '20px',
@@ -184,7 +184,7 @@ export default async function EventosPage() {
                 return (
                   <a
                     key={event.id}
-                    href={`/eventos/${event.slug}`}
+                    href={`/eventos/slug?slug=${event.slug}`}
                     style={{
                       display: 'block',
                       background: '#F8F9FA',

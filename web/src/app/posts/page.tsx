@@ -47,7 +47,7 @@ export default async function PostsPage() {
               return (
                 <a
                   key={post.id}
-                  href={`/posts/${post.slug}`}
+                  href={`/posts/slug?slug=${post.slug}`}
                   style={{
                     display: 'block',
                     background: 'white',
